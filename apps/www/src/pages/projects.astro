@@ -2,13 +2,15 @@
 import Sidebar from '../components/Sidebar.astro';
 import Layout from '../layouts/Layout.astro';
 
+const placeholderVideoUrl = 'https://www.youtube.com/watch?v=49lY0HqqUVc';
+
 const projects = [
   {
     period: '2024 - Present',
     title: 'Project 1',
     summary:
       'Short placeholder summary for the first project. Replace this with the real problem, outcome, and context later.',
-    videoHref: '#',
+    videoUrl: placeholderVideoUrl,
     repoHref: '#',
   },
   {
@@ -16,7 +18,7 @@ const projects = [
     title: 'Project 2',
     summary:
       'Short placeholder summary for the second project. Keep this section brief for now and refine it over time.',
-    videoHref: '#',
+    videoUrl: placeholderVideoUrl,
     repoHref: '#',
   },
   {
@@ -24,10 +26,17 @@ const projects = [
     title: 'Project 3',
     summary:
       'Short placeholder summary for the third project. Use this slot for one of the workflows you want to highlight.',
-    videoHref: '#',
+    videoUrl: placeholderVideoUrl,
     repoHref: '#',
   },
 ];
+
+const getYoutubeEmbedUrl = (watchUrl: string) => {
+  const videoId = new URL(watchUrl).searchParams.get('v');
+  return videoId
+    ? `https://www.youtube-nocookie.com/embed/${videoId}`
+    : watchUrl;
+};
 ---
 
 <Layout
@@ -38,45 +47,57 @@ const projects = [
   <main class="flex-auto min-w-0 mt-6 md:mt-0 flex flex-col px-2 md:px-0">
     <section>
       <h1 class="font-bold text-3xl font-serif mb-8">Projects</h1>
-      <div class="space-y-6">
+      <div class="space-y-10">
         {
           projects.map((project) => (
-            <div class="flex items-baseline gap-8">
-              <span class="text-neutral-500 dark:text-neutral-400 text-sm min-w-[100px]">
+            <article class="flex flex-col gap-4 md:flex-row md:gap-8 md:items-start">
+              <span class="text-neutral-500 dark:text-neutral-400 text-sm min-w-[100px] md:pt-2">
                 {project.period}
               </span>
-              <div>
-                <div>
-                  <span class="text-neutral-800 dark:text-neutral-200">
-                    {project.title}
-                  </span>
-                  <span class="italic text-xs text-neutral-400 dark:text-neutral-500 ml-2">
-                    (featured project)
-                  </span>
+              <div class="flex-1">
+                <div class="rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 shadow-sm">
+                  <iframe
+                    class="w-full aspect-video"
+                    src={getYoutubeEmbedUrl(project.videoUrl)}
+                    title={`${project.title} walkthrough`}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen={true}
+                  />
                 </div>
-                <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1 leading-relaxed max-w-2xl">
-                  {project.summary}
-                </p>
-                <div class="mt-2 flex flex-wrap gap-4 text-sm">
-                  <a
-                    href={project.videoHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-neutral-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400 transition-all underline decoration-neutral-300 dark:decoration-neutral-600 hover:decoration-neutral-500"
-                  >
-                    Watch walkthrough
-                  </a>
-                  <a
-                    href={project.repoHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-neutral-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400 transition-all underline decoration-neutral-300 dark:decoration-neutral-600 hover:decoration-neutral-500"
-                  >
-                    View repo
-                  </a>
+                <div class="mt-4">
+                  <div>
+                    <span class="text-neutral-800 dark:text-neutral-200">
+                      {project.title}
+                    </span>
+                    <span class="italic text-xs text-neutral-400 dark:text-neutral-500 ml-2">
+                      (featured project)
+                    </span>
+                  </div>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1 leading-relaxed max-w-2xl">
+                    {project.summary}
+                  </p>
+                  <div class="mt-3 flex flex-wrap gap-4 text-sm">
+                    <a
+                      href={project.videoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-neutral-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400 transition-all underline decoration-neutral-300 dark:decoration-neutral-600 hover:decoration-neutral-500"
+                    >
+                      Watch walkthrough
+                    </a>
+                    <a
+                      href={project.repoHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-neutral-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400 transition-all underline decoration-neutral-300 dark:decoration-neutral-600 hover:decoration-neutral-500"
+                    >
+                      View repo
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
+            </article>
           ))
         }
       </div>
