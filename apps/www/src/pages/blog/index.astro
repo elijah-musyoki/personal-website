@@ -1,6 +1,5 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
-import Icon from '../../components/icons.astro';
 import Sidebar from '../../components/Sidebar.astro';
 import Layout from '../../layouts/Layout.astro';
 
@@ -39,20 +38,6 @@ const formatDate = (date: Date) => {
             </div>
           ))
         }
-      </div>
-
-      <div
-        class="mt-12 pt-6 border-t border-neutral-200 dark:border-neutral-800"
-      >
-        <a
-          href="https://medium.com/@mattzcarey"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 transition-all"
-        >
-          <Icon name="arrow" />
-          <span class="ml-1">view more posts</span>
-        </a>
       </div>
     </section>
   </main>
