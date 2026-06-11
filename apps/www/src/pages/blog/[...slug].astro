@@ -20,7 +20,7 @@ type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
 const { Content } = await render(post);
 
-const baseUrl = 'https://mattzcarey.com';
+const baseUrl = 'https://portfolio.emusyoki.workers.dev';
 const canonicalUrl = `${baseUrl}/blog/${post.id}`;
 
 const title = `${post.data.title} | Elijah Musyoki`;

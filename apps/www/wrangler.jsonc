@@ -1,6 +1,6 @@
 {
     "$schema": "../../node_modules/wrangler/config-schema.json",
-    "name": "matt-site",
+    "name": "portfolio",
     "main": "./dist/_worker.js/index.js",
     "compatibility_date": "2025-01-01",
     "compatibility_flags": ["nodejs_compat"],
@@ -12,10 +12,5 @@
         "enabled": true
     },
     "upload_source_maps": true,
-    "routes": [
-        {
-            "custom_domain": true,
-            "pattern": "mattzcarey.com"
-        }
-    ]
+    "workers_dev": true
 }
