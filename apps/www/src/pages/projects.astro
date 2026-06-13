@@ -1,8 +1,8 @@
 ---
+import { YouTube } from 'astro-lazy-youtube-embed';
 import Sidebar from '../components/Sidebar.astro';
 import { projects } from '../data/projects';
 import Layout from '../layouts/Layout.astro';
-import { getYoutubeEmbedUrl } from '../lib/youtube';
 ---
 
 <Layout
@@ -22,13 +22,12 @@ import { getYoutubeEmbedUrl } from '../lib/youtube';
               </span>
               <div class="flex-1">
                 <div class="rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 shadow-sm">
-                  <iframe
-                    class="w-full aspect-video"
-                    src={getYoutubeEmbedUrl(project.videoUrl)}
+                  <YouTube
                     title={`${project.title} walkthrough`}
+                    videoId={project.videoId}
                     loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen={true}
+                    noLink
+                    class="w-full aspect-video"
                   />
                 </div>
                 <div class="mt-4">
@@ -45,7 +44,7 @@ import { getYoutubeEmbedUrl } from '../lib/youtube';
                   </p>
                   <div class="mt-3 flex flex-wrap gap-4 text-sm">
                     <a
-                      href={project.videoUrl}
+                      href={`https://www.youtube.com/watch?v=${project.videoId}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       class="text-neutral-800 dark:text-neutral-200 hover:text-neutral-600 dark:hover:text-neutral-400 transition-all underline decoration-neutral-300 dark:decoration-neutral-600 hover:decoration-neutral-500"
