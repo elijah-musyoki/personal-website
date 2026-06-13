@@ -1,0 +1,11 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#111010"/>
+  <rect x="48" y="48" width="1104" height="534" rx="36" fill="#1A1919" stroke="#2C2A2A" stroke-width="2"/>
+  <circle cx="184" cy="168" r="74" fill="#F5F5F4" fill-opacity="0.08"/>
+  <text x="184" y="192" text-anchor="middle" fill="#F5F5F4" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700" letter-spacing="2">EM</text>
+  <text x="120" y="336" fill="#F5F5F4" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700">Elijah Musyoki</text>
+  <text x="120" y="396" fill="#A1A1AA" font-family="Arial, Helvetica, sans-serif" font-size="30">Business Process Automation Specialist</text>
+  <text x="120" y="456" fill="#D4D4D8" font-family="Arial, Helvetica, sans-serif" font-size="28">portfolio.emusyoki.workers.dev</text>
+  <line x1="120" y1="500" x2="1080" y2="500" stroke="#2C2A2A" stroke-width="2"/>
+  <text x="120" y="544" fill="#71717A" font-family="Arial, Helvetica, sans-serif" font-size="22">Portfolio • Cloudflare Workers • Astro</text>
+</svg>
