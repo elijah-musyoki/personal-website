@@ -30,3 +30,4 @@
 - Prefer updating existing files over creating new ones.
 - Keep `README.md` as the user-facing setup guide.
 - Update `README.md` when setup or deploy steps change.
+- The social preview image is a raw SVG in `apps/www/public/og.svg`; replace `EM` with your own initials if the site branding changes.

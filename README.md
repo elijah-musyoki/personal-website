@@ -59,3 +59,4 @@ Cloudflare Web Analytics getting started guide: https://developers.cloudflare.co
 - The website lives in `apps/www`.
 - The shared layout adds the analytics snippet for every page.
 - `apps/www/dist` is generated output.
+- The social preview image is a raw SVG in `apps/www/public/og.svg`; replace `EM` with your own initials if you reuse the site.
