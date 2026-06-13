@@ -1,6 +1,6 @@
-# Elijah Musyoki's Personal Website
+# Personal Website
 
-A simple personal portfolio built with Astro and deployed on Cloudflare Workers.
+A simple portfolio starter built with Astro and deployed on Cloudflare Workers.
 
 ## Getting Started
 
